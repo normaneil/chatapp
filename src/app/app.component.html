@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row columns">
+    <div id="iface">
+      
+      <input type="text" id="message" placeholder="Your chat message here.." [(ngModel)]="msg" #message>
+      <input type="submit" class="submit" value="Send now" (click)="send(message.value)">
+
+      <div class="details-container" *ngFor="let item of items | async; let i = index">
+        <div class="row">
+          <div class="medium-9 columns">
+            <p>{{ item.message }}</p>
+          </div>
+          <div class="medium-3 columns" >
+            <button (click)="delete(item.$key)">delete</button>
+            <button>edit</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
